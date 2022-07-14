@@ -29,12 +29,11 @@ def converter(file, pg):
         janela['-msg-'].update("Página(s) do arquivo convertidas para JPEG...")
     
     except:        
-        sg.popup_error('Erro',
-                       'Verifique se você tem o pacote "poppler-utils" \
-instalado em seu computador ou a quantidade de páginas de seu arquivo PDF...')
+        sg.popup_error('Verifique se você tem o pacote "poppler-utils" \
+instalado em seu computador ou a quantidade de páginas de seu arquivo PDF...', title='Erro!!!')
         janela['-msg-'].update('')
         
-sg.theme('Topanga')
+sg.theme('Reddit')
 
 menu = [
     ['&Arquivo', ['Abrir Arquiv&o','&Cancelar']],
@@ -58,7 +57,17 @@ while True:
         break
     
     if evento in ('Manual do Software'):        
-        sg.popup('fff', 'Bla, Bla, Bla')    
+        sg.popup('==============MANUAL DO USUÁRIO==============',
+               '''=============================================
+
+(1) Abra um arquivo PDF através do menu ou botão [Abrir Arquivo].
+(2) No Popup clique em [browse] para navegar até o Diretório/Arquivo.
+(3) Com o Arquivo escolhido clique em [Open] e em [Ok]...
+(4) Agora clique em [Yes] para Converter todas as páginas ou em [No]
+caso queira converter apenas uma determinado página em Imagem...
+(5) Agora só Aguardar seu arquivo PDF ser convertida em JPG...
+=============================================
+''', location=(0,0), title='MANUAL DO USUÁRIO')    
     
     if evento in ('Abrir Arquivo'):        
         janela["capa"].update('')
@@ -71,7 +80,7 @@ while True:
             path = f'{os.path.normpath(os.path.dirname(file))}/'            
            
         except:            
-            sg.popup('Arquivo Vazio', 'Você não escolheu nenhum arquivo PDF para converter em imagem...')           
+            sg.popup('Você não escolheu nenhum arquivo PDF para converter em imagem...', title='Arquivo Vazio')           
                  
         if file != None and file != '' and file != './':            
             janela['-msg-'].update(f'Seu PDF Está Sendo Convertido Em Imagem... Aguarde...')            
@@ -82,7 +91,7 @@ while True:
                     converter(file, 'all')                
 
                 except:
-                    sg.popup_error('Sinto muito!', 'Vou ficar devendo essa! Não consegui converter seu arquivo em imagens...')
+                    sg.popup_error('Vou ficar devendo essa! Não consegui converter seu arquivo em imagens...', title='Sinto muito!')
                 
                 gerar_capa(path) 
                             
@@ -93,8 +102,7 @@ while True:
                     converter(file, int(pg))
                     
                 except:
-                    sg.popup_error('Sinto muito!',
-                                       'Vou ficar devendo essa! Não consegui converter seu arquivo em imagens...')
+                    sg.popup_error('Vou ficar devendo essa! Não consegui converter seu arquivo em imagens...', title='Sinto muito!')
                 
                 gerar_capa(path)            
     
