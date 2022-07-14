@@ -1,12 +1,13 @@
 # Conversor-PDF2IMAGE-
 
-Este é um software construído inteiramente em Python e que tem por finalidade converter páginas de um arquivo PDF em imagens com a extensão JPG. Isso é útil quando queremos enviar um certificado em uma rede social onde somente aceita imagem. Já fazia isso via linha de comando, mas resolvi criar esse aplicativo com interface gráfica.
+Este é um software construído inteiramente em Python e que tem por finalidade converter páginas de um arquivo PDF em imagens com a extensão JPG. Isso é útil quando queremos enviar um certificado em uma rede social onde somente aceita imagem, por exemplo. Eu já fazia isso via linha de comando, mas resolvi criar esse aplicativo com interface gráfica com o auxilio da Biblioteca [PySimpleGUI](https://pypi.org/project/PySimpleGUI/).
 
 ![Conversor-PDF2IMAGE](image.png)
 
 ## Instalação do Conversor-PDF2IMAGE em Linux
 
-Verifique se você já tem o git e o python instalado em seu OS. 
+Verifique se você já tem o git e o python instalado em seu OS.
+
 Clone e configure o **Conversor-PDF2IMAGE** no terminal usando os comandos:
 
 ~~~
@@ -18,9 +19,20 @@ pip install -r requirements.txt
 python app.py
 ~~~
 
-Se tudo estiver certo o **Conversor-PDF2IMAGE** abrirá...
+Se tudo estiver certo, o **Conversor-PDF2IMAGE** abrirá...
 
-Agora mova o projeto para a pasta opt
+Mova o projeto para a pasta */opt* com o comando:
+
+~~~
+cd ../
+mv Conversor-PDF2IMAGE- /opt
+~~~
+
+Crie um Link para o ambiente virtual *.venv* e o arquivo *app.py*. Eu uso o Alacarte para isso:
+
+~~~
+/opt/Conversor-PDF2IMAGE-/.venv/bin/python /opt/Conversor-PDF2IMAGE-/app.py
+~~~
 
 
 ## Instalação do Conversor-PDF2IMAGE em Windows
@@ -37,4 +49,4 @@ pip install -r requirements.txt
 python app.py
 ~~~
 
-Se
+Você pode usar o [Pyinstaller](https://pyinstaller.org/en/stable/) para transformar esse código fonte em um software portátil que pode ser movido para o disco C:/ ou  para um Pendrive por exemplo...
