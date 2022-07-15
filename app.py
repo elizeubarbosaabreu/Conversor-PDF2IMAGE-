@@ -99,12 +99,21 @@ caso queira converter apenas uma determinado página em Imagem...
                 pg = sg.popup_get_text('Qual página do arquivo você quer converter em imagem?: ')
                 
                 try:
+                    if pg.isnumeric():
+                        pass
+                        
+                    else:
+                        pg = sg.popup_get_text('Escolha uma página válida: ')
+                        
                     converter(file, int(pg))
-                    
+                        
                 except:
                     sg.popup_error('Vou ficar devendo essa! Não consegui converter seu arquivo em imagens...', title='Sinto muito!')
                 
-                gerar_capa(path)            
+                gerar_capa(path)
+                
+            
+                
     
     if evento in ('Linkedin'):
         webbrowser.open('https://www.linkedin.com/in/elizeu-barbosa-abreu')
